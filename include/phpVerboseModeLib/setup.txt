@@ -1,0 +1,100 @@
+#########################################################################################
+
+
+		PHP VERBOSE LIBRARY BY Ingmar Ehrig (c) 2015-2024
+
+
+#########################################################################################
+
+
+SETUP INSTRUCTIONS
+
+-----------------------------------------------------------------------------------------
+
+1. Copy the folder phpVerboseLib e.g. into your project directory's include folder
+
+-----------------------------------------------------------------------------------------
+
+2. include verbose.inc.php via require_once('path_to_file') at the beginning of your PHP files (usually the main documents where all the other includes are happening)
+
+-----------------------------------------------------------------------------------------
+
+3. include verboseOutput.php via require_once('path_to_file') at the very end of your PHP file
+(the same document as above)
+
+ERROR HANDLING MITTELS TRY-CATCH:
+Falls die Debug-Ausgabe auch bei Auftreten eines vorgehenden Fatal Errors 
+erscheinen soll, muss die EInbindung innerhalb eines Finally-Blocks platziert
+werden (und entsprechend der gesamte vorgehende Code in einem Try-Block).
+
+-----------------------------------------------------------------------------------------
+
+4. include debug.css via <link rel="stylesheet" href="path_to_file"> in your html code block or view
+
+-----------------------------------------------------------------------------------------
+
+5. Inside your main document simply type
+	
+	debug(String 'debug message'[, String verboseType=NULL, String messageType='']);
+		
+	e.g. debug('Error saving user data into database', messageType:'err'); 		// without a special verboseType but with an error indicator
+
+	e.g. debug('$parameter', 'F'); 							// with special verboseType 'Function'
+
+	e.g. debug('\$value: $value', 'V'); 						// with special verboseType 'Value'
+
+	e.g. debug('User data saved successfully into database', messageType:'ok'); 	// without a special verboseType but with an success indicator
+	
+	to trigger a debug message.	
+	
+
+	The verboseType is optional and is meant for multilevel verbosing.
+	Prepared values can be 
+
+		'V'	// Verbosing for values	
+		'F'	// Verbosing for functions
+		'DB'	// Verbosing for DB operations	
+		'C'	// Verbosing for data classes	
+		'CC'	// Verbosing for data class constructors	
+		'H'	// Verbosing for helper classes	
+		'HC'	// Verbosing for helper class constructors	
+		'T'	// Verbosing for traits	
+		'TC'	// Verbosing for trait constructors	
+
+	
+	The message type is optional and can be 
+	
+		'err' 	for a red dot indicator
+		'ok' 	for a green dot indicator
+		'hint' 	for an orange dot indicator
+		'log' 	for a red dot indicator plus an entry to the error log file
+		
+	being displayed at the beginning of the debug line.
+
+-----------------------------------------------------------------------------------------
+
+6. To create debugging css styles for your own functions just name the css classes after your function's name and add it to the top list of the debug.css file to inherit the basic debugging layout.
+
+Then add your class at the end of the debug.css and fill it with individual styles or overwrite some of the basic styles.
+
+-----------------------------------------------------------------------------------------
+
+#########################################################################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

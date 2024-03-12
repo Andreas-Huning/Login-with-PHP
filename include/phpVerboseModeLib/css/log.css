@@ -1,0 +1,40 @@
+/**********************************/
+/********** BASIC STYLES **********/
+/**********************************/
+
+body {
+	font-family: verdana;
+	font-size: 14px;
+	box-sizing: border-box;
+	padding: 0% 3%;
+}
+
+
+/********** TABLES **********/
+table {
+	width: 100%; 
+	font-family: courier new; 
+	font-size: 0.9em; 
+}
+table, td { 
+	border: 1px solid teal; 
+	border-collapse: collapse;
+}
+th {
+	background-color: lightblue; 
+	padding: 10px;
+}
+td {
+	padding: 10px;  
+	text-align: center; 
+	color: teal;
+}
+td:last-child {
+	/* for future use */
+}
+tr:nth-child(even) {
+	background-color: #eee;
+}
+tr:hover {
+	background-color: #dee;
+}

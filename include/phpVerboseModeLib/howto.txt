@@ -1,0 +1,137 @@
+#########################################################################################
+
+
+ACTIVATING AND DEACTIVATING VERBOSE MODE
+
+To activate one or multiple verbose levels you can set the verboseing constants defined in verbose.inc.php to true. To deactivate verbosing levels set the wanted constants to false.
+
+
+#########################################################################################
+
+
+MULTILEVEL VERBOSING
+
+There are multiple levels for verbosing already included:
+- verbosing for main documents
+- verbosing for values
+- verbosing for functions
+- verbosing for data classes
+- verbosing for data class constructors
+- verbosing for helper classes
+- verbosing for helper class constructors
+- verbosing for traits
+- verbosing for traits constructort
+
+Each of these levels can either be activated or deactivated for a better overview or a more detailed verbosing.
+
+
+#########################################################################################
+
+
+HOW AND WHERE TO PLACE VERBOSE MESSAGE INSIDE YOUR CODE
+
+
+If you want to keep track to you code simply type
+	
+	debug(String 'debug message'[, String verboseType=NULL, String messageType='']);
+
+
+	whereas debug message is the debug message (sic!) and optional, verboseType sets the multilevel verbose type as
+	follows:
+
+		'V'	// Verbosing for values	
+		'F'	// Verbosing for functions
+		'DB'	// Verbosing for DB operations	
+		'C'	// Verbosing for data classes	
+		'CC'	// Verbosing for data class constructors	
+		'H'	// Verbosing for helper classes	
+		'HC'	// Verbosing for helper class constructors	
+		'T'	// Verbosing for traits	
+		'TC'	// Verbosing for trait constructors
+
+	and messageType, which renders a green, yellow or red dot in front of the debug message output or even triggers
+	an error log entry.
+
+	The message type is optional and can be 
+	
+		'err' 	for a red dot indicator
+		'ok' 	for a green dot indicator
+		'hint' 	for an orange dot indicator
+		'log' 	for a red dot indicator plus an entry to the error log file
+		
+	being displayed at the beginning of the debug line.
+
+-----------------------------------------------------------------------------------------
+
+1. Generally speaking place a debug message in every crucial line which you want to track
+
+	- inside every branch:
+		
+		if( condition ) {
+			debug('branch AB called');
+			
+			...rest of code...
+			
+		} else {
+			debug('branch CD called');
+			
+			...rest of code...
+		}
+		
+		
+-----------------------------------------------------------------------------------------
+		
+2. At the begin and at crucial lines of every function:
+
+	function dbConnect($dbname=DB_NAME) {
+		debug("Connecting to database '<b>$dbname</b>'...");
+		
+		...code...
+		
+		if(VERBOSE_MODE_EXTENDED) showQuery($PDOStatement);
+		
+		...code...
+		
+	}
+
+
+-----------------------------------------------------------------------------------------
+
+3. Everytime you validated something:
+
+	debug('email found in database', 'ok');
+	
+	debug('passwords do not match', 'err');
+	
+	debug('error saving user data into database', 'err');
+	
+	
+-----------------------------------------------------------------------------------------
+	
+4. For every other operation you want to keep track of:
+
+	debug('fetching all user entries from database...', 'hint');
+	
+	debug('generating email headers...', 'hint');
+	
+	debug('white listing form fields', 'hint');
+	
+	
+-----------------------------------------------------------------------------------------
+
+5. You can even use them within try-catch-blocks:
+
+	try {
+	
+		$PDOStatement = $PDO->prepare($sql);
+		$PDOStatement->execute($placeholders);	
+		
+	} catch(PDOException $error) {	
+		debug($error->GetMessage(), 'err');
+		
+	} finally {
+		debug('closing database connection...');
+	}
+
+
+#########################################################################################

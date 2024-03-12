@@ -1,0 +1,201 @@
+/**************************************/
+/********** DEBUGGING STYLES **********/
+/**************************************/
+
+
+/********** BASIC STYLES FOR ALL DEBUG MESSAGES ***********/
+
+/* Add your own CSS class names here */
+.debugEntry,
+.sanitizeString,.sanitizeFloat,
+.validateInputString,.validateEmail,.validateNumber,.validatePrice,.validateImageUpload,
+.isoToEuDateTime,.toIsoDate,.validateDate,.dbConnect,.dbClose,.auth,.classLoader,.dbOperation,.showQuery {
+	background-color: dodgerblue;
+	padding: 1px 5px;
+	margin-bottom: 2px;
+	margin-top: 2px;
+	color: white;
+	margin-left: 1rem;
+	font-family: arial condensed;
+	font-size: 0.7rem;
+	opacity: 0.9;
+	line-height: 0.9rem;
+}
+
+
+/*****************************************************************************************/
+
+
+/********** STATUS STYLES **********/
+.err, .ok, .hint, .log {
+	border-radius: 0.5rem 0 0 0.5rem;
+	border-left: 0.7rem solid whitesmoke;
+	margin-left: 0.3rem;
+}
+.err, .log {
+	border-color: red;
+}
+.ok {
+	border-color: #0BDA51;
+}
+.hint {
+	border-color: darkorange;
+}
+pre {
+	border-radius: 10px;
+	display: table;
+	margin-left: 1rem;
+	border-spacing: 1rem;
+}
+.value {
+	opacity: 0.5;
+}
+
+
+/*****************************************************************************************/
+
+
+/********** DEBUGGER STYLES **********/
+debugger {
+	display: block;
+	position:fixed;
+	top: 30px;
+	right: 30px;
+	height: 90%;
+	overflow-y: auto;
+	box-shadow: 10px 10px 15px 0px rgba(51,51,51,0.3);
+	border-radius: 10px;
+	background-color: rgba(230,230,230,0.9);
+	color: #666;
+	padding: 25px;
+	padding-top: 0;
+	font-size: 0.9rem; 
+	width: 40%;
+}
+debugger:hover {
+	cursor: move;
+}
+debugger h3 {
+	font-size: 1.2rem;
+	text-align: center;
+	letter-spacing: 0.1rem;
+}
+debugger #moveLeft, debugger #moveRight {
+	font-family: arial condensed;
+	color: dodgerblue;
+}
+debugger #moveLeft:hover, debugger #moveRight:hover, debugger #close:hover {
+	cursor: pointer;	
+}
+debugger #moveLeft {
+	float: left;
+}
+ debugger #moveRight, #close { 
+	float: right;
+}
+debugger p.small {
+	padding: 1px 5px;
+	margin-top: 2px;
+	margin-left: 1rem;
+	font-family: arial condensed;
+	font-size: 0.7rem;	
+	font-size: 0.7rem;
+	line-height: 1rem;
+	color: #666;
+	margin-bottom: 20px;
+	opacity: 0.5;
+}
+debugger p.debugEntry:hover {
+	cursor:grabbing;
+}
+
+
+/*****************************************************************************************/
+
+
+/* ADDITIONAL STYLES FOR INDIVIDUAL DEBUG MESSAGES */
+
+
+/********** CLASSES AND TRAITS **********/
+.class,.trait {
+	font-family: georgia;
+}
+.class {
+	background-color: lightblue;
+	color: #333;
+}
+.trait {
+	background-color: lightskyblue;
+	color: #333;
+}
+
+
+/********** FUNCTIONS AND METHODS **********/
+.classLoader {
+	font-family: courier new;
+	font-size: 0.9rem;
+	background-color: cornflowerblue;
+}
+.sanitizeString {
+	background-color: #C9E4DE;
+	color: #333;
+}
+.sanitizeFloat {
+	background-color: LightGreen;
+	color: black;
+}
+.checkMandatory {
+	background-color: LightSeaGreen;
+	color: white;
+}
+.validateInputString {
+	background-color: #AFE1AF;
+	color: #333;
+}
+.validateEmail {
+	background-color: mediumspringgreen;
+	color: black;
+}
+.validateNumber {
+	background-color: springgreen;
+	color: black;
+}
+.validatePrice {
+	background-color: MediumSpringGreen;
+	color: black;
+}
+.validate2Passwords {
+	background-color: paleturquoise;
+	color: black;
+}
+.image {
+	background-color: darkcyan;
+}
+.validateImageUpload, .imageUploader {
+	background-color: #40B5AD;
+	color: #333;
+}
+.isoToEuDateTime,.toIsoDate,.validateDate {
+	background-color: #ccc;
+}
+.dbConnect, .dbClose {
+	background-color: #F0E68C;
+	color: #333;
+}
+.dbOperation, .showQuery {
+	background-color: #FCFDAF;
+	color: #333;
+}
+.auth {
+	background-color: palegoldenrod;
+	color: black;
+}
+.debug, .verboseLog {
+	background-color: darksalmon;
+}
+
+
+/*****************************************************************************************/
+
+
+/* Add your own styles here */
